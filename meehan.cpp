@@ -76,9 +76,10 @@ void calc_XS() {
     for(int i = 0; i < yp.size(); i++) {
         XS += yp[i]*xp[i];
     }
-    if(XS >= 2 && XS / 2 == 0)
+    int int_xs = floor(XS);
+    if(XS >= 2 && int_xs % 2 == 0)
         XS = XS - floor(XS);
-    else if (XS > 2 && XS / 2 != 0)
+    else if (XS > 2 && int_xs % 2 != 0)
         XS = XS - floor(XS) + 1;
 }
 
@@ -99,6 +100,13 @@ int main() {
 
     multiplicative_inverse();
     calc_y();
+    /*X = 40;
+    get_XRNS();
+    calc_xp();
+    calc_XS();
+    calc_X();
+    printInfo();
+    printValues();*/
 
     // jak chcesz zeby liczyło pojedynczego iksa i zeby wyswietlilo wszystkie dane to tylko zakomentuj for'a i odkomentuj reszte
     for (int i = 0; i < M; i++) {
@@ -112,10 +120,6 @@ int main() {
         x.clear();
         xp.clear();
     }
-    //calc_XS();
-    //calc_X();
-    //printInfo();
-    //printValues();
 
     return 0;
 }
